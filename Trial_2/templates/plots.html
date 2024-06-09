@@ -1,0 +1,177 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Light grey background */
+            font-family: Arial, sans-serif; /* Arial font */
+            color: #333; /* Dark grey text */
+        }
+        img {
+            border: 1px solid #ddd; /* Grey border */
+            border-radius: 4px; /* Rounded borders */
+            padding: 5px; /* Some padding */
+            width: 150px; /* Set a small width */
+        }
+        img:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5); /* Blue shadow */
+        }
+    </style>
+
+    <title>Data Analysis</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            padding: 5px;
+            justify-content: center;
+            margin: 0 15px;
+        }
+        .grid-item {
+            text-align: center;
+            border: 1px solid black;  
+            padding: 10px;
+            height: auto;
+            display: flex;  
+            flex-direction: column;  
+            justify-content: center; 
+            align-items: center;
+        }
+        .grid-item img
+         {  
+            width: 65%;  
+            height: auto;
+            margin-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 200px;
+        }
+        h2 {
+            text-align: center;
+            font-size: 100px;
+        }
+        p{
+            text-align: center;
+            font-size: 50px;
+        }
+        .enlarged {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+<body>
+    <h1><u>Data Analysis Plots</u></h1>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2><u>Histogram</u></h2>
+            <img src="{{ url_for('static', filename='histplot.png') }}" alt="Histogram" onclick="enlarge(this)">
+            <p>This is a histogram plot, showing the trends of Air Temperature in Kelvins[K]</p>
+        </div>
+
+        <div class="grid-item">
+            <h2><u>Bar Plot</u></h2>
+            <img src="{{ url_for('static', filename='barplot.png') }}" alt="Bar Plot" onclick="enlarge(this)">
+            <p>This is a histogram plot, showing the trends of Process Temperature in Kelvins[K]</p> 
+        </div>
+
+        <div class="grid-item">
+            <h2><u>Displot Plot</u></h2>
+            <img src="{{ url_for('static', filename='displot.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+        </div>
+        
+        <div class="grid-item">
+            <h2><u>Plot 4</u></h2>
+            <img src="{{ url_for('static', filename='plot4.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+        </div>
+
+        <div class="grid-item">
+            <h2><u>Plot 5</u></h2>
+            <img src="{{ url_for('static', filename='plot5.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+        </div>
+
+        <div class="grid-item">
+            <h2><u>Plot 6</u></h2>
+            <img src="{{ url_for('static', filename='plot6.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+        </div>
+
+
+        <div class="grid-item">
+            <h2><u>Plot 7</u></h2>
+            <img src="{{ url_for('static', filename='plot7.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+        </div>
+        
+            <div class="grid-item">
+                <h2><u>Scatter Plot</u></h2>
+                <img src="{{ url_for('static', filename='scatterplot.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+            </div>
+
+
+        <div class="grid-item">
+            <h2><u>Plot 8</u></h2>
+            <img src="{{ url_for('static', filename='plot8.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+        </div>
+
+
+        <div class="grid-item">
+            <h2><u>Plot 9</u></h2>
+            <img src="{{ url_for('static', filename='plot9.png') }}" alt="Pie Chart" onclick="enlarge(this)">
+        </div>
+
+        <div class="grid-item">
+            <h2><u>Box Plot</u></h2>
+            <img src="{{ url_for('static', filename='boxplot.png') }}" alt="Box Plot" onclick="enlarge(this)">
+        </div>
+
+
+        <div class="grid-item">
+            <h2><u>Plot 10</u></h2>
+            <img src="{{ url_for('static', filename='plot10.png') }}" alt="Box Plot" onclick="enlarge(this)">
+        </div>
+
+        <div class="grid-item">
+            <h2><u>Plot 11</u></h2>
+            <img src="{{ url_for('static', filename='plot11.png') }}" alt="Box Plot" onclick="enlarge(this)">
+        </div> 
+
+        <div class="grid-item">
+            <h2><u>Plot 12</u></h2>
+            <img src="{{ url_for('static', filename='plot12.png') }}" alt="Box Plot" onclick="enlarge(this)">
+        </div> 
+<!-- 
+        <div class="grid-item">
+            <h2><u>Plot 13</u></h2>
+            <img src="{{ url_for('static', filename='plot13.png') }}" alt="Box Plot" onclick="enlarge(this)">
+        </div>  -->
+
+        
+
+    </div>
+    <script>
+        function enlarge(img) {
+            img.style.position = 'fixed';
+            img.style.top = '50%';
+            img.style.left = '50%';
+            img.style.transform = 'translate(-50%, -50%)';
+            img.style.zIndex = '9999';
+            img.style.width = '50%';  
+            img.style.height = '50%';;
+            img.onclick = function() {
+                img.style = '';
+                img.onclick = function() {
+                    enlarge(img);
+                };
+            };
+        }
+    </script>
+</body>
+</html>
