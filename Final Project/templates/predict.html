@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+               
+            #bgvid {
+                position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100%; 
+            height: auto; 
+            z-index: -100;
+            background-size: cover;
+            filter: blur(2px);
+        }
+        h2 {
+            font-size: 70px;
+            text-align: center;
+            color: rgb(255, 255, 255)
+        }
+        p{
+            text-align: center;
+            font-size: 48px;
+            color: rgb(255, 255, 255);
+        }
+        a{
+            text-align: center;
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+        }
+        </style>
+    </head>
+<body>
+
+<h2><u>Prediction Result:</u></h2>
+<br><br><br>
+{% if prediction == 0 %}
+<p>No failure detected !!!</p>
+{% elif prediction == 1 %}
+<p>Failure detected !!!</p>
+{% endif %}
+<br><br><br><br><br><br><br><br><br><br>
+
+<div style="display: flex; justify-content: center;">
+    <a href="/">Go back</a>
+</div>
+
+<video playsinline autoplay muted loop id="bgvid">
+    <source src="{{ url_for('static', filename='bg4.mp4') }}" type="video/mp4">
+</body>
+</html>

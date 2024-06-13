@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f0f0f0; 
+            font-family: Arial, sans-serif; 
+            color: #333;
+        }
+        img {
+            border: 1px solid #ddd; 
+            border-radius: 4px; 
+            padding: 5px;
+            width: 150px; 
+        }
+        img:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5); /* Blue shadow */
+        }
+    </style>
+
+    <title>Data Analysis</title>
+    <style>
+        #bgvid {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100%; 
+            height: auto; 
+            z-index: -100;
+            
+            filter: blur(2px);
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            padding: 5px;
+            justify-content: center;
+            margin: 0 15px;
+        }
+        .grid-item {
+            color: #f0f0f0;
+            text-align: center;
+            border: 1px solid black;  
+            padding: 10px;
+            height: auto;
+            display: flex;  
+            flex-direction: column;  
+            justify-content: center; 
+            align-items: center;
+        }
+        .grid-item img
+         {  
+            width: 65%;  
+            height: auto;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            font-size: 70px;
+        }
+        h2 {
+            text-align: center;
+            font-size: 40px;
+        }
+        p{
+
+            text-align: center;
+            font-size: 20px;
+        }
+        .enlarged {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        h3{
+            text-align: center;
+            font-size: 20px;
+            color: #ffffff;    
+        }
+    </style>
+</head>
+<body>
+    <h1><u>Data Analysis Plots</u></h1>
+    <h3> Click The Plots To <u>ENLARGE</u></h3>
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2><u>Air Temperature Frequency</u></h2>
+            <img src="{{ url_for('static', filename='histplot.png') }}" alt="Histogram" onclick="enlarge(this)">
+            <p>This is a Dis-plot, showing the trends of Air Temperature in Kelvins[°C]</p>
+        </div>
+
+        <div class="grid-item">
+            <h2><u>Process Temperature Frequency</u></h2>
+            <img src="{{ url_for('static', filename='barplot.png') }}" alt="Bar Plot" onclick="enlarge(this)">
+            <p>This is a Dis-plot, showing the trends of Process Temperature in Kelvins[°C]</p> 
+        </div>
+
+        <div class="grid-item">
+            <h2><u>Temperature Difference</u></h2>
+            <img src="{{ url_for('static', filename='displot.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+            <p>This is a Dis-plot, showing the difference between Air and Process Temperature in Kelvins[°C]</p>
+        </div>
+        
+        <div class="grid-item">
+            <h2><u>Product Varients</u></h2>
+            <img src="{{ url_for('static', filename='plot4.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+            <p>This is a Count plot & Pie chart, showing the different product variants</p>
+        </div>
+
+        <div class="grid-item">
+            <h2><u>Target Failures</u></h2>
+            <img src="{{ url_for('static', filename='plot5.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+            <p>This is a Count plot & Pie chart, showing the target failures</p>
+        </div>
+
+        <div class="grid-item">
+            <h2><u>Types Of Failure</u></h2>
+            <img src="{{ url_for('static', filename='plot6.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+            <p>This is a Pie chart, showing the types of failures like - Power, Oversteam, random failures etc.</p>
+        </div>
+
+
+        <div class="grid-item">
+            <h2><u>Failure Types Hue</u></h2>
+            <img src="{{ url_for('static', filename='plot7.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+            <p>This is a Scatter plot, showing the Hue of Failure types with rescpect to Torque & Rotational Speed</p>
+        </div>
+        
+            <div class="grid-item">
+                <h2><u>Product Varients Hue</u></h2>
+                <img src="{{ url_for('static', filename='scatterplot.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+                <p>This is a Scatter plot, showing the Hue of Product Varients with rescpect to Torque & Rotational Speed</p>
+            </div>
+
+
+        <div class="grid-item">
+            <h2><u>Target Failure Hue</u></h2>
+            <img src="{{ url_for('static', filename='plot8.png') }}" alt="Scatter Plot" onclick="enlarge(this)">
+            <p>This is a Scatter plot, showing the Hue of Target Failures with rescpect to Torque & Rotational Speed</p>
+        </div>
+
+
+        <div class="grid-item">
+            <h2><u>Torque statistics</u></h2>
+            <img src="{{ url_for('static', filename='plot9.png') }}" alt="Pie Chart" onclick="enlarge(this)">
+            <p>This is a Histogram, showing statistics values for Torque column like - Mean, Median & Mode</p>
+        </div>
+
+        <div class="grid-item">
+            <h2><u>Torque Distribution</u></h2>
+            <img src="{{ url_for('static', filename='boxplot.png') }}" alt="Box Plot" onclick="enlarge(this)">
+            <p>This is a Box plot, showing the distribution of Torque values</p>
+        </div>
+
+
+        <div class="grid-item">
+            <h2><u>Rotational Speed statistics</u></h2>
+            <img src="{{ url_for('static', filename='plot10.png') }}" alt="Box Plot" onclick="enlarge(this)">
+            <p>This is a Histogram, showing statistics values for Rotational Speed column like - Mean, Median & Mode</p>
+        </div>
+
+        <div class="grid-item">
+            <h2><u>Rotational Speed Distribution</u></h2>
+            <img src="{{ url_for('static', filename='plot11.png') }}" alt="Box Plot" onclick="enlarge(this)">
+            <p>This is a Box plot, showing the distribution of Rotational Speed values</p>
+        </div> 
+
+        <div class="grid-item">
+            <h2><u>Torque v/s Product Varient</u></h2>
+            <img src="{{ url_for('static', filename='plot12.png') }}" alt="Box Plot" onclick="enlarge(this)">
+            <p>This is Dis-plot, showing trends of Torque as per the different Product Varients</p>
+        </div> 
+
+
+        
+    </div>
+    <script>
+        function enlarge(img) {
+            img.style.position = 'fixed';
+            img.style.top = '50%';
+            img.style.left = '50%';
+            img.style.transform = 'translate(-50%, -50%)';
+            img.style.zIndex = '9999';
+            img.style.width = '50%';  
+            img.style.height = '50%';;
+            img.onclick = function() {
+                img.style = '';
+                img.onclick = function() {
+                    enlarge(img);
+                };
+            };
+        }
+    </script>
+
+<video playsinline autoplay muted loop id="bgvid">
+    <source src="{{ url_for('static', filename='bg3.mp4') }}" type="video/mp4">
+</video>
+
+</body>
+</html>

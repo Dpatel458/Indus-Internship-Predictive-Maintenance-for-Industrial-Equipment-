@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Display</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 5;
+            background: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        iframe {
+            align-self: center;
+            border: 5px solid #333;
+            border-radius: 10px;
+            width: 80%;
+            height: 80%;
+            background-image: url("{{ url_for('static', filename='bg2.jpg') }}");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data from CSV file</h1>
+    <iframe src="/datadis"></iframe>
+</body>
+</html>

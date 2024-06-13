@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <style>
+        #bgvid {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100%; 
+            height: auto; 
+            z-index: -100;
+            background-size: cover;
+            filter: blur(3px);
+        }
+        h2 {
+            font-size: 70px;
+            text-align: center;
+            color: rgb(255, 255, 255)
+        }
+        p{
+            text-align: center;
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+        }
+        form {
+            text-align: center;
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+        }
+    </style>
+    </head>
+<body>
+
+<h2><u>Prediction Window</u></h2>
+
+<p><b>Enter your data below to make a Failure prediction.</b></p>
+<br>
+<form action="/predict" method="post">
+  
+    <label for="Air temperature [K]">Air temperature [K]:</label><br>
+    <input type="text" id="Air temperature [K]" name="Air temperature [K]" value=""><br>
+    <br>
+    <label for="Process temperature [K]">Process temperature [K]:</label><br>
+    <input type="text" id="Process temperature [K]" name="Process temperature [K]" value=""><br>
+    <br>
+    <label for="Rotational speed [rpm]">Rotational speed [rpm]:</label><br>
+    <input type="text" id="Rotational speed [rpm]" name="Rotational speed [rpm]" value=""><br>
+    <br>
+    <label for="Torque [Nm]">Torque [Nm]:</label><br>
+    <input type="text" id="Torque [Nm]" name="Torque [Nm]" value=""><br>
+    <br>
+    <input type="submit" value="Predict">
+</form>
+
+<video playsinline autoplay muted loop id="bgvid">
+    <source src="{{ url_for('static', filename='bg3.mp4') }}" type="video/mp4">
+</video>
+
+</body>
+</html>

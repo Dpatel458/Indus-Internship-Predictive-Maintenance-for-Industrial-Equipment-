@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+         body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #bgvid {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100%; 
+            height: auto; 
+            z-index: -100;
+            
+            filter: blur(2px);
+        }
+        h1{
+            font-size: 70px;
+            text-align: center;
+            color: rgb(255, 255, 255)
+        }
+        .grid-item {
+            text-align: center;
+            border: 1px solid black;  
+            padding: 10px;
+            height: auto;
+            display: flex;  
+            flex-direction: column;  
+            justify-content: center; 
+            align-items: center;
+        }
+        .grid-item img
+         {  
+            width: 65%;  
+            height: auto;
+            margin-top: 20px;
+        }
+        p{
+            text-align: center;
+            font-size: 30px;
+            color: aliceblue;
+        }
+        a{
+            text-align: center;
+            font-size: 24px;
+            color: aliceblue;
+        }
+    </style>
+
+</head>
+<body>
+    <h1><u>Machine Learning - Models Comparison</u></h1>
+    <div class="grid-item">
+        
+        <img src="{{ url_for('static', filename='model_accuracies.png') }}" alt="Model comparison Graphs">
+        <br>
+        <p><b>This models are tested and accuracy are caluclated as per the model training and this Graphs are plotted...</b></p>
+        <br>
+        <p><b>So as per the Model's accuracies, the best fit for our data will be the Logistic Regression Model.</b></p>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <a href="/">Go back</a>
+    </div>
+
+    <video playsinline autoplay muted loop id="bgvid">
+        <source src="{{ url_for('static', filename='bg.mp4') }}" type="video/mp4">
+    </video>
+    
+</body>
+</html>

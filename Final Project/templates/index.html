@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predictive Maintenance Project</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #bgvid {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100%; 
+            height: auto; 
+            z-index: -100;
+            object-fit: contain;
+            filter: blur(5px);
+        }
+        h1 {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 60px;
+            text-align: center;
+            color: rgb(250, 187, 0); 
+            text-shadow: 0 0 2px #625b5b, 0 0 8px #7a6d6d, 0 0 10px #d0d0d0, 0 0 10px #080a0c; 
+
+        }
+        .center {
+            font-size: 30px;
+            text-align: center;
+            color: #2196F3; 
+        }
+        a {
+            color: #ffffff; 
+            text-decoration: none;
+            border: 2px solid #81fb10; 
+            padding: 10px;
+            text-shadow: 0 0 2px #d0d0d0, 0 0 8px #d0d0d0, 0 0 10px #d0d0d0, 0 0 10px #080a0c; 
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="test"></div>
+    <h1><u>Predictive Maintenance for Industrial Equipment</u></h1>
+    <div class="center">
+        <br><br>
+        <a href="/datadis"><b>Dataset Display</b></a>
+        <br><br><br>
+        <a href="/plots"><b>Data Visualization Plots</b></a>
+        <br><br><br>
+        <a href="/model"><b>ML Models Comparisons</b></a>
+        <br><br><br>
+        <a href="/lr"><b>Logisitic Regression Model Analysis</b></a>
+        <br><br><br>
+        <a href="/predict"><b>Predict for Specific Values</b></a>
+    </div>
+    <video playsinline autoplay muted loop id="bgvid">
+        <source src="{{ url_for('static', filename='bg2.mp4') }}" type="video/mp4">
+    </video>
+</body>
+</html>

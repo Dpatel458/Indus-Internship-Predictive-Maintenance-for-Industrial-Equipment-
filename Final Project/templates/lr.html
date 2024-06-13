@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+         body, html {
+            height: 100%;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #bgvid {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100%; 
+            height: auto; 
+            z-index: -100;
+            background-size: cover;
+            filter: blur(2px);
+        }
+        
+        h1{
+            font-size: 70px;
+            text-align: center;
+            color: rgb(255, 255, 255)
+        }
+        .grid-item {
+            text-align: center;
+            border: 1px solid black;  
+            padding: 10px;
+            height: auto;
+            display: flex;  
+            flex-direction: column;  
+            justify-content: center; 
+            align-items: center;
+        }
+        .grid-item img 
+         {  
+            width: 50%;  
+            height: auto;
+            margin-top: 20px;
+        }
+        p{
+            text-align: center;
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+        }
+        a{
+            text-align: center;
+            font-size: 24px;
+            color: rgb(255, 255, 255);
+        }
+    </style>
+
+</head>
+<body>
+    <h1><u>LR Model Metrics Scores</u></h1>
+    <hr style="width: 100%;">
+    <br>
+
+    <div class="grid-item">
+        
+        <img src="{{ url_for('static', filename='LR_data.png') }}" alt="Model comparison Graphs">
+        <br>
+        <p><b>This Graphs Depicts the actual Values for the Metrics Score gained from the Model from Logistic Regression.</b></p>
+        
+        <br>
+        <a>1.<b> Accuracy </b>- Accuracy measures the proportion of true results among the total number of cases examined.</a>
+        <br>
+        <a>2.<b> Precision</b> - Precision is the ratio of correctly predicted positive observations to the total predicted positives.</a>
+        <br>
+        <a>3.<b> Recall </b>- Recall is the ratio of correctly predicted positive observations to the all observations in actual class.</a>
+        <br>
+        <a>4. <b>F1 Score </b>- The F1 score is the weighted average of Precision and Recall.</a>
+       <br>
+        <hr style="width: 100%;">
+        <br><br>
+        <img src="{{ url_for('static', filename='LR_confusion_matrix.png') }}" alt="Model comparison Graphs">
+        <br>
+        <p>A <b>confusion matrix</b> is a table used to evaluate the performance of a classification model. It shows the predicted and actual classifications and helps understand the accuracy and error types of the model.</p>
+        <br>
+        
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <a href="/">Go back</a>
+    </div>
+     
+    <video playsinline autoplay muted loop id="bgvid">
+        <source src="{{ url_for('static', filename='bg5.mp4') }}" type="video/mp4">
+    </video>
+    
+</body>
+</html>
