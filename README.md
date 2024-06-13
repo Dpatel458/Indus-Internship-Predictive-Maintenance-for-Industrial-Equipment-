@@ -1,5 +1,6 @@
 # Indus-Internship
 INDUS UNIVERSITY
+
 Faculty - Ms. Babita Patel
 
 Contains all the Docs, Datasets HTML ,CSS & Py. files regarding the project - "Predictive Maintenance for Industrial Equipment"
