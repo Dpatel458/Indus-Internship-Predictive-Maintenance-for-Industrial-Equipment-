@@ -11,4 +11,4 @@ B.TECH CSE SEM 4
 3) Varun Patel - IU2241230266
 
 
-![alt text](Screenshot/Screenshot)
+![alt text](Screenshot/a1.png)
