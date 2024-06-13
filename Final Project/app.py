@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask, render_template,request
 import seaborn as sns
 import matplotlib.pyplot as plt
