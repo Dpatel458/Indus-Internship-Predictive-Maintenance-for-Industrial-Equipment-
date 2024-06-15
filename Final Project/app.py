@@ -207,7 +207,7 @@ def model():
     plt.xlabel('Models')
     plt.ylabel('Accuracy (%)')
     plt.title('Model Accuracies')
-    plt.ylim(0, 100)
+    plt.ylim(0, 110)
 
     plt.savefig('static/model_accuracies.png')
 
@@ -232,9 +232,9 @@ y_pred = log.predict(x_test)
 def lr():
     
     a = accuracy_score(y_test, y_pred) * 100
-    b = precision_score(y_test, y_pred, average='macro')
-    c = recall_score(y_test, y_pred, average='macro')
-    d = f1_score(y_test, y_pred, average='macro')
+    b = precision_score(y_test, y_pred, average='macro')*100
+    c = recall_score(y_test, y_pred, average='macro')*100
+    d = f1_score(y_test, y_pred, average='macro')*100
     
 
     metrics = ['Accuracy', 'Precision', 'Recall', 'F1 Score']
@@ -250,7 +250,7 @@ def lr():
     plt.xlabel('Metrics')
     plt.ylabel('Score')
     plt.title('Model Performance Metrics', fontsize=20)
-    plt.ylim(0.0, 1.0)
+    plt.ylim(0,110)
     plt.grid(True)
     plt.savefig('static/LR_data.png')
 
