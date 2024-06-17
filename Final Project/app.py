@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 import statistics
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix,accuracy_score,precision_score, recall_score, f1_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -176,10 +177,11 @@ def model():
 
     
     accuracies = {
-        'Logistic Regression': 96.75,
-        'Decision Tree': 92.00,
-        'Random Forest': 96.75,
-        'SVM': 96.75
+        'Logistic Regression': 97.76,
+        'Decision Tree': 96.70,
+        'Random Forest': 98.20,
+        'SVM': 96.90,
+        'KNN': 95.40
     }
 
     
@@ -187,7 +189,7 @@ def model():
     values = list(accuracies.values())
 
     
-    colors = ['blue', 'green', 'red', 'orange']
+    colors = ['blue', 'green', 'red', 'orange','yellow']
 
     
     plt.figure(figsize=(10, 5))
@@ -219,7 +221,7 @@ x = data.drop(columns="Failure Type").apply(le.fit_transform)
 y = data["Failure Type"]
 x_train, x_test, y_train, y_test = train_test_split(x,y, test_size=0.2, random_state=21)
 
-log = LogisticRegression()
+log = RandomForestClassifier()
 log.fit(x_train, y_train)
 
 y_pred = log.predict(x_test)
@@ -281,11 +283,11 @@ model = load('model.joblib')
 df = pd.read_csv('Maintenance_Info2.csv')
 features = ['Air temperature [K]', 'Process temperature [K]', 'Rotational speed [rpm]', 'Torque [Nm]']
 X = df[features]
-y = df['Target']
+y = df['Failure Type']
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-model = LogisticRegression()
+model = RandomForestClassifier(n_estimators=1000,random_state=1)
 model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 
@@ -300,7 +302,7 @@ def predict():
         features = ['Air temperature [K]', 'Process temperature [K]', 'Rotational speed [rpm]', 'Torque [Nm]']
         data = {}
         for feature in features:
-            value = float(request.form[feature])  # Convert string to float
+            value = float(request.form[feature]) 
             data[feature] = value
 
         input_df = pd.DataFrame(data, index=[0])
