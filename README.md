@@ -10,6 +10,3 @@ B.TECH CSE SEM 4
 2) Dhruv Patel - IU2241230244
 3) Varun Patel - IU2241230266
 
-Below is the Image of Main WebPage...
-
-![alt text](Screenshot/a1.png)
