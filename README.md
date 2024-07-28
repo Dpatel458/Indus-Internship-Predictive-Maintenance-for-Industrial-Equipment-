@@ -1,4 +1,4 @@
-# Indus-Internship
+# Indus-Internship, Ahmedabad
 INDUS UNIVERSITY
 
 Faculty - Ms. Babita Patel
